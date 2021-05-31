@@ -28,9 +28,18 @@ const createStore = () => {
         getSearchQuotes(state, { search }) {
           this.$axios.get(`https://animechan.vercel.app/api/quotes/anime?title=${search}`)
             .then(data => {
-              
-              state.quotesBySearch = data.data;
+              state.quotesBySearch = data.data
+            
             })
+            .catch(err => {
+              if (err) {
+              this.$axios.get(
+                `https://animechan.vercel.app/api/quotes/character?name=${search}`
+              ).then(data => {
+                state.quotesBySearch = data.data
+              })
+            }
+          })
           
         }
     

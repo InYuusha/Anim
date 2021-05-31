@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="pb-6">
     <div class="bg-pink-700 p-4  shadow-2xl bg-">
     <input v-on:keyup.enter="getSearch()" v-model="search" name="#" class="shadow-sm rounded w-24 px-2  focus:ring-2 focus:ring-pink-500">
     <button  v-on:click="getSearch()">Search</button>
