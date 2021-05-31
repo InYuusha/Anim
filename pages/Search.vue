@@ -23,6 +23,7 @@ export default {
 
   components:{
     Quote,
+    Nav
     
   },
   computed:{
