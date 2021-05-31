@@ -26,6 +26,7 @@ const createStore = () => {
                 });
         },
         getSearchQuotes(state, { search }) {
+          /*Case 1 Get Quotes By Anime */
           this.$axios.get(`https://animechan.vercel.app/api/quotes/anime?title=${search}`)
             .then(data => {
               state.quotesBySearch = data.data
@@ -33,6 +34,7 @@ const createStore = () => {
             })
             .catch(err => {
               if (err) {
+                /* Case 2 Get Quotes By character*/
               this.$axios.get(
                 `https://animechan.vercel.app/api/quotes/character?name=${search}`
               ).then(data => {
@@ -40,6 +42,7 @@ const createStore = () => {
               })
                 .catch(err=>{
                   if (err) {
+                    // Case 3 None Put array empty
                     state.quotesBySearch=[]
                   }
                 })
