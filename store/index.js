@@ -38,6 +38,11 @@ const createStore = () => {
               ).then(data => {
                 state.quotesBySearch = data.data
               })
+                .catch(err=>{
+                  if (err) {
+                    state.quotesBySearch=[]
+                  }
+                })
             }
           })
           
