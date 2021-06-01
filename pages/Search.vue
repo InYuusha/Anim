@@ -16,16 +16,11 @@
 </template>
 
 <script>
-import Nav from '../components/Nav'
-import Quote from '../components/Quote'
+
 
 export default {
 
-  components:{
-    Quote,
-    Nav
-    
-  },
+
   computed:{
     searchedQuotes(){
       return this.$store.state.quotesBySearch
