@@ -3,9 +3,9 @@
     <div class="bg-gray-700 p-4 px-10  shadow-3xl flex justify-between">
       
 
-        <button class="w-10 h-10 border-4 border-gray-50  text-center text-gray-100 ">
+        <router-link to="/animes" class="pt-1 w-10 h-10 border-4 border-gray-50  text-center text-gray-100 ">
             A
-        </button>
+        </router-link>
 
         <div>
          <input

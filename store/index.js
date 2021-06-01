@@ -12,7 +12,10 @@ const createStore = () => {
       quotes:[],
         quotesBySearch: [],
         quotesBySearchNext:[],
-      page:1
+        page: 1,
+      animes:[],
+        animesByChar:[],
+      char:'A'
     },
       mutations: {
         /* Get 10 Random Quotes
@@ -60,6 +63,21 @@ const createStore = () => {
             }
           })
           
+        },
+        async getAllAnimes(state) {
+          await this.$axios.get(`https://animechan.vercel.app/api/available/anime`)
+            .then(data => {
+              state.animesByChar=state.animes = data.data
+               
+            })
+            .catch(err => {
+            console.log(err)
+          })
+          
+          
+        },
+        async getQuotesByAnime(state) {
+          await this.$axios.get(`https://animechan.vercel.app/api/quotes/anime?title=${search}`)
         }
     
     }
