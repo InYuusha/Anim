@@ -24,6 +24,13 @@
      <button @click="getQuotesByAnime(anime)">{{anime}}</button> 
 
     </div>
+
+    <div v-if="allAnimesByChar.length==0" class="md:w-2/3 w-4/5 bg-gray-200 mx-auto p-8 flex flex-col">
+    <span class="text-2xl text-gray-800 mb-7">We couldn't proceed your request at this moment "{{$route.query.s}}"</span>
+    <span class="text-gray-600">You can try again later after some try</span>
+  
+
+  </div>
 </div>
 
 

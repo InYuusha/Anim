@@ -7,6 +7,8 @@
     <!-- Quotes -->
   <Quote v-for="(quote,key) in quotes" :key="key" :quote="quote"></Quote>
 
+ 
+
 </div>
 
 </template>
