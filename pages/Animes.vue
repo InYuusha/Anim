@@ -3,6 +3,10 @@
 
   <!-- Nav -->
   <Nav></Nav>
+  <!--nav2-->
+    
+  <Header></Header>
+  
 <!-- Main window -->
 <div class="w-4/5 md:w-2/3 mx-auto bg-gray-100">
   <!-- Header -->

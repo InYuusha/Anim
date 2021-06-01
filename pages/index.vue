@@ -3,6 +3,9 @@
 <div class="min-h-screen ">
   <!-- Nav bar -->
   <Nav></Nav>
+    <!--nav2-->
+    
+  <Header str="Shuffled Quotes" ></Header>
 
     <!-- Quotes -->
   <Quote v-for="(quote,key) in quotes" :key="key" :quote="quote"></Quote>

@@ -4,7 +4,8 @@
   
   <!-- Nav -->
   <Nav></Nav>
-
+  <!--nav2-->
+  <Header></Header>
   <!-- Seached Quotes -->
   <Quote  v-for="(quote,key) in searchedQuotes" :key="key" :quote="quote" ></Quote>
 

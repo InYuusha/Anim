@@ -2,6 +2,9 @@
 
 <div>
     <Nav></Nav>
+
+      <!--nav2-->
+  <Header></Header>
  <!-- Window -->
     <div class="w-4/5 md:w-2/3 bg-gray-100 mx-auto
     ">

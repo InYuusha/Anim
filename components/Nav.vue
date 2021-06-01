@@ -1,7 +1,7 @@
 <template>
-  <div class="mb-6">
+  
     <!--First Nav -->
-    <div class="bg-gray-700 p-4 px-10  shadow-3xl flex justify-between">
+    <div class="bg-gray-700 p-4 md:px-10 px-4  shadow-3xl flex justify-between">
 
      
         <!--Home icon -->
@@ -21,7 +21,7 @@
                v-model="search"
                value="Search By Anime or Character"
                name="#"
-               class="md:h-11 h-8 shadow-sm rounded md:w-36 w-16 px-2  focus:ring-2 focus:ring-pink-500 text-grey-700"
+               class="md:h-11 h-8 shadow-sm rounded md:w-36 w-14 px-2  focus:ring-2 focus:ring-pink-500 text-grey-700"
                 />
              <button
                 v-on:click="getSearch()"
@@ -35,11 +35,10 @@
         </div>
    
     </div>
-    <!--Navigation Panel -->
-    <div class="bg-gray-100 h-10 flex justify-center align-middle"></div>
+  
 
     <!-- End of nav -->
-  </div>
+  
 </template>
 
 <script>
