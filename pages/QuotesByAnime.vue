@@ -7,7 +7,7 @@
     ">
 
     <!--Header -->
-    <div class="bg-gray-500 p-4">
+    <div class="bg-gray-500 p-4 mb-4">
         <span class="text-gray-100">{{$route.query.anime}}</span>
 
     </div>

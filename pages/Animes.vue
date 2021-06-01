@@ -15,7 +15,7 @@
   <!--Navigation Bar -->
   <div class="bg-gray-200 p-3">
 
-    <button @click="getQuotesByAlpha(char)" class=" w-4 mx-1.5 active:bg-gray-700 " v-for="(char,key) in alpha" :key="key">{{char}}</button>
+    <button :class="currentChar==char?'active':'notActive'"  v-for="(char,key) in alpha" :key="key" @click="getQuotesByAlpha(char)"  >{{char}}</button>
 
   </div>
 
@@ -36,7 +36,8 @@ export default{
     data:()=>({
 
       alpha:['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q',
-      'R','S','T','U','V','W','X','Y','Z']
+      'R','S','T','U','V','W','X','Y','Z'],
+      currentChar:''
 
     }),
     computed:{
@@ -56,6 +57,7 @@ export default{
 
       },
       async getQuotesByAlpha(char){
+        this.currentChar=char
         this.$store.state.animesByChar=this.allAnimes.filter((anime)=>{
           if(anime.startsWith(char)||anime.startsWith(char.toLowerCase())){
             return anime
@@ -72,6 +74,16 @@ export default{
 }
 
 </script>
+<style>
 
+.active{
+  @apply w-7 mx-1.5 bg-gray-700 text-lg text-gray-200
+    
+}
+.notActive{
+  @apply w-4 mx-1.5  text-sm 
+    
+}
+</style>
 
     
