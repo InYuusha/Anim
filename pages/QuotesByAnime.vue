@@ -13,9 +13,11 @@
     </div>
     <!--endHeader -->
 
-    <Quote v-for="(quote,key) in getQuotes" :key="key" :quote="quote">
-        
-    </Quote>
+    <Quote v-for="(quote,key) in getQuotes" :key="key" :quote="quote"></Quote>
+
+    <!--Error handling -->
+
+
 
     </div>
 
