@@ -75,15 +75,15 @@ const createStore = () => {
         )
           .then(res => {
             if (!res.ok) {
-              return await context.commit('getQuotesBySearchedChar', {search}) 
+              return  context.commit('getQuotesBySearchedChar', {search}) 
             }
             else return res.json()
           })
            .then(data => context.state.quotesBySearch = data)
         
       },
-      async quotesByAnime(context, { search}) {
-        await context.commit('getQuotesByAnime', {search})
+      async quotesByAnime(context, { anime}) {
+        await context.commit('getQuotesByAnime', {anime})
       }
     }
   })
