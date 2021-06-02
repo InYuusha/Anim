@@ -1,3 +1,4 @@
+import shrinkRay from "shrink-ray-current";
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: "static",
@@ -25,7 +26,8 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/tailwindcss
-    "@nuxtjs/tailwindcss"
+    "@nuxtjs/tailwindcss",
+    "nuxt-compress"
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -33,9 +35,7 @@ export default {
     // https://go.nuxtjs.dev/axios
     "@nuxtjs/axios",
     // https://go.nuxtjs.dev/pwa
-    "@nuxtjs/pwa",
-    
-    
+    "@nuxtjs/pwa"
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -53,7 +53,9 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 
-  router: {
-    
+  router: {},
+
+  render: {
+    compressor: shrinkRay()
   }
 };
