@@ -11,8 +11,9 @@
    
         
   
-        <div class="flex justify-evenly items-center">
-          <router-link class="text-gray-200 font-semibold uppercase text-xs mx-8" to="/animes">Animes list</router-link>
+        <div class="flex justify-evenly items-center">  
+
+          <button class="text-gray-200 font-semibold uppercase text-xs mx-8" @click="animeList()">Animes list</button>
           <!-- Search -->
             <div>
                 <input
@@ -48,19 +49,22 @@ export default {
   }),
   methods: {
     getSearch() {
-      this.$store.commit("getSearchQuotes", {
+      this.$store.dispatch("searchedQuotes", {
         search: this.search
       });
       this.$router.push({
-        path: `/search?s=${this.search}&page=${this.getPage}`
+        path: `/search?s=${this.search}`
       });
     },
+    async animeList(){
+     await this.$store.dispatch('animeList')
+     this.$router.push('/animes')
+    }
+    
     
   },
   computed: {
-    getPage() {
-      return this.$store.state.page;
-    }
+  
   }
 };
 </script>

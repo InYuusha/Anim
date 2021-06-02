@@ -34,7 +34,7 @@ export default {
 
   },
   mounted(){
-    this.$store.commit('getQuotes')
+    this.$store.dispatch('shuffledQuotes')
 
   }
 }

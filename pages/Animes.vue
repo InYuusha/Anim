@@ -76,7 +76,7 @@ export default{
 
     },
     mounted(){
-        this.$store.commit('getAllAnimes')
+        
     }
 }
 
