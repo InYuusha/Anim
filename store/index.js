@@ -31,7 +31,7 @@ const createStore = () => {
        async getQuotesBySearchedChar(state, { search}) {
          await fetch(`https://animechan.vercel.app/api/quotes/character?name=${search}`)
           .then(res => res.json())
-          .then(data => { console.log(data);state.quotesBySearch = data; })
+          .then(data => state.quotesBySearch = data )
       },
 
       // GET  Anime list  

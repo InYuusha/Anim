@@ -37,7 +37,6 @@
    
     </div>
   
-
     <!-- End of nav -->
   
 </template>
@@ -48,8 +47,8 @@ export default {
     search: ""
   }),
   methods: {
-    getSearch() {
-       this.$store.dispatch("searchedQuotes", {
+    async getSearch() {
+       await this.$store.dispatch("searchedQuotes", {
         search: this.search
       });
       this.$router.push({
