@@ -15,7 +15,7 @@
 
           <button class="text-gray-200 font-semibold uppercase text-xs mx-8" @click="animeList()">Animes list</button>
           <!-- Search -->
-            <div>
+            
                 <input
                src=""
                v-on:keyup.enter="getSearch()"
@@ -30,7 +30,7 @@
               >
              Search
             </button>
-           </div>
+           
           <!-- endSearch -->
           
         </div>
@@ -42,7 +42,12 @@
 </template>
 
 <script>
+
 export default {
+  components:{
+    
+
+  },
   data: () => ({
     search: ""
   }),

@@ -2,7 +2,9 @@
 <div>
 
   <!-- Nav -->
-  <Nav></Nav>
+ <LazyHydrate when-visible>
+    <Nav></Nav>
+ </LazyHydrate>
   <!--nav2-->
     
   <Header></Header>
@@ -10,10 +12,12 @@
 <!-- Main window -->
 <div class="w-4/5 md:w-2/3 mx-auto bg-gray-100">
   <!-- Header -->
-  <div class=" p-4  bg-gray-500 flex justify-start align-baseline">
+<LazyHydrate ssr-only>
+    <div class=" p-4  bg-gray-500 flex justify-start align-baseline">
     <span class="mx-6 text-gray-100 ">Anime list</span>
 
   </div>
+</LazyHydrate>
   <!--endHeader -->
 
   <!--Navigation Bar -->
@@ -24,12 +28,15 @@
   </div>
 
   <!--End Nav bar -->
+  <!--Quotes-->
   <div class="px-5 my-2" v-for="(anime,key) in allAnimesByChar" :key="key">
      <button @click="getQuotesByAnime(anime)">{{anime}}</button> 
 
   </div>
 
-  <Loading :list="allAnimesByChar"></Loading>
+  <LazyHydrate when-visible>
+    <Loading :list="allAnimesByChar"></Loading>
+  </LazyHydrate>
 
   
 
@@ -41,7 +48,19 @@
 </template>
 
 <script>
+import Nav from "../components/Nav.vue"
+import Header from "../components/Header.vue"
+import Loading from "../components/Loading"
+
+import LazyHydrate from 'vue-lazy-hydration';
 export default{
+  components:{
+Nav,
+Header,
+Loading,
+LazyHydrate
+
+  },
     data:()=>({
 
       alpha:['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q',
@@ -61,8 +80,8 @@ export default{
     },
     methods:{
       //get Quotes by anime
-      async getQuotesByAnime(anime){
-        await this.$store.dispatch('quotesByAnime',{anime:anime})
+     async getQuotesByAnime(anime){
+        this.$store.dispatch('quotesByAnime',{anime:anime})
         this.$router.push(`/quotesbyanime?anime=${anime}`)
 
       },
