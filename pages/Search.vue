@@ -9,7 +9,7 @@
   <!-- Seached Quotes -->
   <Quote  v-for="(quote,key) in searchedQuotes" :key="key" :quote="quote" ></Quote>
 
-  <div v-if="searchedQuotes.length==0" class="md:w-2/3 w-4/5 bg-gray-200 mx-auto p-8 flex flex-col">
+  <div v-if="searchedQuotes.length==0||typeof searchedQuotes=='undefined'" class="md:w-2/3 w-4/5 bg-gray-200 mx-auto p-8 flex flex-col">
     <span class="text-2xl text-gray-800 mb-7">We couldn't find anything with "{{$route.query.s}}"</span>
     <span class="text-gray-600">You can try with character name or anime name, or checkout the Anime list</span>
   

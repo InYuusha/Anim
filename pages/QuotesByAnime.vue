@@ -18,7 +18,8 @@
 
     <Quote v-for="(quote,key) in getQuotes" :key="key" :quote="quote"></Quote>
 
-    <!--Error handling -->
+    <!--Loading-->
+    <Loading :list="getQuotes"></Loading>
 
 
 
@@ -44,9 +45,9 @@ export default{
         getQuotes(){
             return this.$store.state.quotesByAnime
         }
-        
-
-    }
+    
+    },
+    
 }
 
 </script>

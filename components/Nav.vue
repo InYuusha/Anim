@@ -47,16 +47,16 @@ export default {
     search: ""
   }),
   methods: {
-    async getSearch() {
-       await this.$store.dispatch("searchedQuotes", {
+     getSearch() {
+       this.$store.dispatch("searchedQuotes", {
         search: this.search
       });
       this.$router.push({
         path: `/search?s=${this.search}`
       });
     },
-    async animeList(){
-     await this.$store.dispatch('animeList')
+     animeList(){
+     this.$store.dispatch('animeList')
      this.$router.push('/animes')
     }
     

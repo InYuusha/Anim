@@ -27,7 +27,9 @@
   <div class="px-5 my-2" v-for="(anime,key) in allAnimesByChar" :key="key">
      <button @click="getQuotesByAnime(anime)">{{anime}}</button> 
 
-    </div>
+  </div>
+
+  <Loading :list="allAnimesByChar"></Loading>
 
   
 

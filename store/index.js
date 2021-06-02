@@ -24,6 +24,7 @@ const createStore = () => {
           .then(data => data.json())
           .then(res => state.quotes = res)
       },
+      
    
 
       //GET Quotes by Character
@@ -31,7 +32,12 @@ const createStore = () => {
        async getQuotesBySearchedChar(state, { search}) {
          await fetch(`https://animechan.vercel.app/api/quotes/character?name=${search}`)
           .then(res => res.json())
-          .then(data => state.quotesBySearch = data )
+           .then(data => {
+             if (data) {
+                state.quotesBySearch = data; 
+             }
+             else state.quotesBySearch=[]
+           })
       },
 
       // GET  Anime list  
@@ -42,30 +48,32 @@ const createStore = () => {
           .then(res => state.animes = state.animesByChar = res)
           .catch(err => {
             console.log(err)
-          })
-          
+          })   
           
       },
-      //GET Anime list
+        
+      //GET Quotes by anime
       // Page :- QuotesByAnime.vue
        getQuotesByAnime(state, { anime }) {
         fetch (`https://animechan.vercel.app/api/quotes/anime?title=${anime}`)
           .then(data => data.json())
           .then(res => state.quotesByAnime = res)
-         
-      }
+      },
+      
+    
     
     },
     actions: {
       //Get shuffled Quotes
-      async shuffledQuotes(context) {
-        await context.commit('getQuotes')
+       shuffledQuotes(context) {
+         context.commit('getQuotes')
       },
+     
 
-      async animeList(context) {
-        await context.commit('getAllAnimes')
-        
+       animeList(context) {
+         context.commit('getAllAnimes') 
       },
+      
 
       //GET quotes by if(anime) , else character
       //Page: Nav
@@ -86,11 +94,14 @@ const createStore = () => {
            })
         
       },
-      async quotesByAnime(context, { anime}) {
-        await context.commit('getQuotesByAnime', {anime})
-      }
+      quotesByAnime(context, { anime}) {
+        context.commit('getQuotesByAnime', {anime})
+      },
+   
+
     },
     gettters: {
+   
    
     }
   })
