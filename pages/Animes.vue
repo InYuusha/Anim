@@ -58,11 +58,13 @@ export default{
 
     },
     methods:{
+      //get Quotes by anime
       async getQuotesByAnime(anime){
-        await this.$store.commit('getQuotesByAnime',{anime:anime})
+        await this.$store.dispatch('quotesByAnime',{anime:anime})
         this.$router.push(`/quotesbyanime?anime=${anime}`)
 
       },
+      //filter Anime list by char
       async getQuotesByAlpha(char){
         this.currentChar=char
         this.$store.state.animesByChar=this.allAnimes.filter((anime)=>{

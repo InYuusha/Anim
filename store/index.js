@@ -19,9 +19,8 @@ const createStore = () => {
       /* Get 10 Random Quotes
       params:null
        */
-      async getQuotes(state) {
-        await fetch
-          ("https://animechan.vercel.app/api/quotes")
+      getQuotes(state) {
+         fetch ("https://animechan.vercel.app/api/quotes")
           .then(data => data.json())
           .then(res => state.quotes = res)
       },
@@ -29,16 +28,16 @@ const createStore = () => {
 
       //GET Quotes by Character
       //Page : Search.vue
-      async getQuotesBySearchedChar(state, { search}) {
-        await fetch(`https://animechan.vercel.app/api/quotes/character?name=${search}`)
+       getQuotesBySearchedChar(state, { search}) {
+         fetch(`https://animechan.vercel.app/api/quotes/character?name=${search}`)
           .then(res => res.json())
           .then(data => { console.log(data);state.quotesBySearch = data })
       },
 
       // GET  Anime list  
       // Page:- Animes.vue
-      async getAllAnimes(state) {
-        await fetch(`https://animechan.vercel.app/api/available/anime`)
+       getAllAnimes(state) {
+        fetch(`https://animechan.vercel.app/api/available/anime`)
           .then(data => data.json())
           .then(res => state.animes = state.animesByChar = res)
           .catch(err => {
@@ -49,9 +48,8 @@ const createStore = () => {
       },
       //GET Anime list
       // Page :- QuotesByAnime.vue
-      async getQuotesByAnime(state, { anime }) {
-        fetch
-          .get(`https://animechan.vercel.app/api/quotes/anime?title=${anime}`)
+       getQuotesByAnime(state, { anime }) {
+        fetch (`https://animechan.vercel.app/api/quotes/anime?title=${anime}`)
           .then(data => data.json())
           .then(res => state.quotesByAnime = res)
          
@@ -60,29 +58,32 @@ const createStore = () => {
     },
     actions: {
       //Get shuffled Quotes
-      shuffledQuotes(context) {
-        context.commit('getQuotes')
+      async shuffledQuotes(context) {
+        await context.commit('getQuotes')
       },
 
-      animeList(context) {
-        context.commit('getAllAnimes')
+      async animeList(context) {
+        await context.commit('getAllAnimes')
         
       },
 
       //GET quotes by if(anime) , else character
       //Page: Nav
-      searchedQuotes(context, { search}) {
-         fetch(
+      async searchedQuotes(context, { search}) {
+         await fetch(
           `https://animechan.vercel.app/api/quotes/anime?title=${search}`
         )
           .then(res => {
             if (!res.ok) {
-              return context.commit('getQuotesBySearchedChar', {search}) 
+              return await context.commit('getQuotesBySearchedChar', {search}) 
             }
             else return res.json()
           })
            .then(data => context.state.quotesBySearch = data)
         
+      },
+      async quotesByAnime(context, { search}) {
+        await context.commit('getQuotesByAnime', {search})
       }
     }
   })
