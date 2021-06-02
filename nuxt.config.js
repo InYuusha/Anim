@@ -32,16 +32,11 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    // https://go.nuxtjs.dev/axios
-    "@nuxtjs/axios",
+  
     // https://go.nuxtjs.dev/pwa
     "@nuxtjs/pwa"
   ],
 
-  // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {
-    baseUrl: "https://animechan.vercel.app/api/"
-  },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {

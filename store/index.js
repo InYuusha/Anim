@@ -28,10 +28,10 @@ const createStore = () => {
 
       //GET Quotes by Character
       //Page : Search.vue
-       getQuotesBySearchedChar(state, { search}) {
-         fetch(`https://animechan.vercel.app/api/quotes/character?name=${search}`)
+       async getQuotesBySearchedChar(state, { search}) {
+         await fetch(`https://animechan.vercel.app/api/quotes/character?name=${search}`)
           .then(res => res.json())
-          .then(data => { console.log(data);state.quotesBySearch = data })
+          .then(data => { console.log(data);state.quotesBySearch = data; })
       },
 
       // GET  Anime list  
@@ -79,12 +79,19 @@ const createStore = () => {
             }
             else return res.json()
           })
-           .then(data => context.state.quotesBySearch = data)
+           .then(data => {
+             if (data) {
+               context.state.quotesBySearch = data;
+             }
+           })
         
       },
       async quotesByAnime(context, { anime}) {
         await context.commit('getQuotesByAnime', {anime})
       }
+    },
+    gettters: {
+   
     }
   })
 }

@@ -49,7 +49,7 @@ export default {
   }),
   methods: {
     getSearch() {
-      this.$store.dispatch("searchedQuotes", {
+       this.$store.dispatch("searchedQuotes", {
         search: this.search
       });
       this.$router.push({
