@@ -24,6 +24,7 @@ const createStore = () => {
       getQuotes(state) {
          fetch ("https://animechan.vercel.app/api/quotes")
            .then(data => {
+             //if couldnt fetch
              if (!data.ok) {
                state.quotes = [{quote:"Something Went Wrong ! Try Again later"}]
              }
@@ -42,12 +43,17 @@ const createStore = () => {
       //Page : Search.vue
        async getQuotesBySearchedChar(state, { search}) {
          await fetch(`https://animechan.vercel.app/api/quotes/character?name=${search}`)
-          .then(res => res.json())
+           .then(res => {
+             //if not found
+             if (!res.ok) {
+               state.quotesBySearch = [{quote:`We Couldnt find anything with ${search}`}]
+             }
+             else return res.json()
+           })
            .then(data => {
              if (data) {
-                state.quotesBySearch = data; 
+               state.quotesBySearch=data
              }
-             else state.quotesBySearch=[]
            })
       },
 

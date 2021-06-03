@@ -3,11 +3,15 @@
 
   <!-- Nav -->
 
-    <Nav></Nav>
+<LazyHydrate when-visible>
+      <Nav></Nav>
+</LazyHydrate>
 
   <!--nav2-->
     
-  <Header></Header>
+  <LazyHydrate ssr-only>
+    <Header></Header>
+  </LazyHydrate>
   
 <!-- Main window -->
 <div class="w-4/5 md:w-2/3 mx-auto bg-gray-100">
@@ -91,17 +95,13 @@ LazyHydrate
             return anime
           }
 
-
         })
       }
 
     },
-    mounted(){
-        
-    }
 }
-
 </script>
+
 <style>
 
 .active{

@@ -16,7 +16,9 @@
 
 
 
-    <Loading :list="quotes"></Loading>
+    <LazyHydrate when-visible>
+      <Loading :list="quotes"></Loading>
+    </LazyHydrate>
 
  
 
