@@ -76,6 +76,7 @@ export default {
       ]
     },
     workbox: {
+      globPatterns: ['**/*.{js,css}', '**/img/*'],
       runtimeCaching: [
         {
           urlPattern: "https://animechan.vercel.app/api/.*",
