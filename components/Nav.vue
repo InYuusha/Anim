@@ -10,7 +10,6 @@
         </router-link>
    
         
-  
         <div class="flex justify-evenly items-center">  
 
           <button class="text-gray-200 font-semibold uppercase text-xs mx-8" @click="animeList()">Animes list</button>

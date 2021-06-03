@@ -3,22 +3,22 @@
 <div class="min-h-screen ">
   <!-- Nav bar -->
  
-    <LazyHydrate when-visible>
-      <Nav></Nav>
-    </LazyHydrate>
-
+    <Nav></Nav>
+   
     <!--nav2-->
     
-  <Header str="Shuffled Quotes" ></Header>
+  <LazyHydrate ssr-only><Header str="Shuffled Quotes" ></Header></LazyHydrate>
 
     <!-- Quotes -->
 
-    <Quote v-for="(quote,key) in quotes" :key="key" :quote="quote"></Quote>
+    
+      <Quote v-for="(quote,key) in quotes" :key="key" :quote="quote"></Quote>
+    
 
 
- <LazyHydrate when-visible>
+
     <Loading :list="quotes"></Loading>
- </LazyHydrate>
+
  
 
 </div>

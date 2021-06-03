@@ -1,4 +1,5 @@
 import shrinkRay from "shrink-ray-current";
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: "static",

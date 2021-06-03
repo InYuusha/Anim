@@ -2,9 +2,9 @@
 <div>
 
   <!-- Nav -->
- <LazyHydrate when-visible>
+
     <Nav></Nav>
- </LazyHydrate>
+
   <!--nav2-->
     
   <Header></Header>
@@ -34,9 +34,9 @@
 
   </div>
 
-  <LazyHydrate when-visible>
+
     <Loading :list="allAnimesByChar"></Loading>
-  </LazyHydrate>
+ 
 
   
 
