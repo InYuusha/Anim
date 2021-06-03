@@ -82,6 +82,7 @@ LazyHydrate
       //get Quotes by anime
       //params (anime) name
      async getQuotesByAnime(anime){
+        this.$store.state.quotesByAnime=[]
         this.$store.dispatch('quotesByAnime',{anime:anime})
         this.$router.push(`/quotesbyanime?anime=${anime}`)
 
