@@ -12,16 +12,14 @@
         
         <div class="flex justify-evenly items-center">  
 
-          <router-link class="text-gray-200 font-semibold uppercase text-xs mx-8" to="/animes">Animes list</router-link>
+          <router-link class="text-gray-200 font-semibold uppercase text-xs mx-4 md:mx-8" to="/animes">Anime list</router-link>
           <!-- Search -->
             
                 <input
                src=""
                v-on:keyup.enter="getSearch()"
                v-model="search"
-               value="Search By Anime or Character"
-               name="#"
-               class="md:h-11 h-8 shadow-sm rounded md:w-36 w-14 px-2  focus:ring-2 focus:ring-pink-500 text-grey-700"
+               class="md:h-11 h-8 shadow-sm rounded md:w-36 w-14 px-2 text-grey-700"
                 />
              <button
                 v-on:click="getSearch()"
@@ -60,14 +58,8 @@ export default {
         path: `/search?s=${this.search}`
       });
     },
-     animeList(){
-     this.$router.push('/animes')
-    }
-    
     
   },
-  computed: {
-  
-  }
+ 
 };
 </script>

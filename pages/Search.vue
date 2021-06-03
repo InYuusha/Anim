@@ -3,16 +3,22 @@
 <div>
   
   <!-- Nav -->
-  <Nav></Nav>
+<LazyHydrate when-visible>
+    <Nav></Nav>
+</LazyHydrate>
+
   <!--nav2-->
-  <Header></Header>
+  <LazyHydrate when-visible>
+    <Header :str="$route.query.s.toUpperCase()"></Header>
+  </LazyHydrate>
+
   <!-- Seached Quotes -->
   <Quote  v-for="(quote,key) in searchedQuotes" :key="key" :quote="quote" ></Quote>
 
-<Loading :list="searchedQuotes"></Loading>
+<LazyHydrate when-visible>
+  <Loading :list="searchedQuotes"></Loading>
+</LazyHydrate>
 
-
-  
 
 </div>
 
@@ -41,14 +47,7 @@ export default {
     }
 
   },
-  methods:{
-
-  },
-
+ 
 }
 </script>
 
-<style>
-
-
-</style>
