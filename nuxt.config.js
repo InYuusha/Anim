@@ -33,16 +33,57 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-  
     // https://go.nuxtjs.dev/pwa
     "@nuxtjs/pwa"
   ],
 
-
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
-      lang: "en"
+      name: "Quokka",
+      short_name: "Quokka",
+      lang: "en",
+      display: "standalone",
+      background_color: "#949996",
+      description: "Anime Quotes",
+      icons: [
+        {
+          src: "icos/48.png",
+          sizes: "48x48",
+          type: "image/png"
+        },
+
+        {
+          src: "icos/96.png",
+          sizes: "96x96",
+          type: "image/png"
+        },
+        {
+          src: "icos/144.png",
+          sizes: "144x144",
+          type: "image/png"
+        },
+        {
+          src: "icos/168.png",
+          sizes: "168x168",
+          type: "image/png"
+        },
+        {
+          src: "icos/192.png",
+          sizes: "192x192",
+          type: "image/png"
+        }
+      ]
+    },
+    workbox: {
+      runtimeCaching: [
+        {
+          urlPattern: "https://animechan.vercel.app/api/.*",
+          handler: "cacheFirst",
+          method: "GET",
+          strategyOptions: { cacheableResponse: { statuses: [0, 200] } }
+        }
+      ]
     }
   },
 
