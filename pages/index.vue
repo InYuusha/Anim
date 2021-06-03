@@ -11,7 +11,6 @@
 
     <!-- Quotes -->
 
-    
       <Quote v-for="(quote,key) in quotes" :key="key" :quote="quote"></Quote>
     
 
@@ -52,8 +51,11 @@ LazyHydrate
   methods:{
 
   },
-  mounted(){
-    this.$store.dispatch('shuffledQuotes')
+  // get quotes
+  //get anime list
+  async mounted(){
+    await this.$store.dispatch('shuffledQuotes')
+     this.$store.dispatch('animeList')
    
 
   }

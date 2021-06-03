@@ -9,12 +9,13 @@ const createStore = () => {
   return new Vuex.Store({
       
     state: {
-      quotes: [],
-      quotesBySearch: [],
-      animes: [],
-      animesByChar: [],
-      quotesByAnime: []
+      quotes: [], //shuffled quotes
+      quotesBySearch: [], //quotes when searched
+      animes: [],      //anime list
+      animesByChar: [],  //filter anime by char
+      quotesByAnime: []   //particular anime quotes
     },
+
     mutations: {
       /* Get 10 Random Quotes
       params:null
@@ -64,27 +65,30 @@ const createStore = () => {
     
     },
     actions: {
-      //Get shuffled Quotes
+      //FIRE shuffled Quotes
        shuffledQuotes(context) {
          context.commit('getQuotes')
       },
      
-
+          //FIRE Anime list
        animeList(context) {
          context.commit('getAllAnimes') 
       },
       
-
-      //GET quotes by if(anime) , else character
+      //FIRE quotes by if(anime) , else character
       //Page: Nav
       async searchedQuotes(context, { search}) {
          await fetch(
           `https://animechan.vercel.app/api/quotes/anime?title=${search}`
         )
-          .then(res => {
-            if (!res.ok) {
+           .then(res => {
+             
+            //if not found
+             if (!res.ok) {
+              //try by character name
               return  context.commit('getQuotesBySearchedChar', {search}) 
-            }
+             }
+             //IF ok
             else return res.json()
           })
            .then(data => {
@@ -94,6 +98,7 @@ const createStore = () => {
            })
         
       },
+      //FIRE quotes BY anime
       quotesByAnime(context, { anime}) {
         context.commit('getQuotesByAnime', {anime})
       },

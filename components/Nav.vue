@@ -12,7 +12,7 @@
         
         <div class="flex justify-evenly items-center">  
 
-          <button class="text-gray-200 font-semibold uppercase text-xs mx-8" @click="animeList()">Animes list</button>
+          <router-link class="text-gray-200 font-semibold uppercase text-xs mx-8" to="/animes">Animes list</router-link>
           <!-- Search -->
             
                 <input
@@ -60,7 +60,6 @@ export default {
       });
     },
      animeList(){
-     this.$store.dispatch('animeList')
      this.$router.push('/animes')
     }
     

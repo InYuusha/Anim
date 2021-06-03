@@ -28,21 +28,17 @@
   </div>
 
   <!--End Nav bar -->
-  <!--Quotes-->
+
+  <!--Anime List-->
   <div class="px-5 my-2" v-for="(anime,key) in allAnimesByChar" :key="key">
      <button @click="getQuotesByAnime(anime)">{{anime}}</button> 
 
   </div>
 
 
-    <Loading :list="allAnimesByChar"></Loading>
+  <Loading :list="allAnimesByChar"></Loading>
  
-
-  
-
 </div>
-
-
 
 </div>
 </template>
@@ -80,12 +76,14 @@ LazyHydrate
     },
     methods:{
       //get Quotes by anime
+      //params (anime) name
      async getQuotesByAnime(anime){
         this.$store.dispatch('quotesByAnime',{anime:anime})
         this.$router.push(`/quotesbyanime?anime=${anime}`)
 
       },
       //filter Anime list by char
+      //params (char) alphabet
       async getQuotesByAlpha(char){
         this.currentChar=char
         this.$store.state.animesByChar=this.allAnimes.filter((anime)=>{
