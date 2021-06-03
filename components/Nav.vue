@@ -52,6 +52,7 @@ export default {
   }),
   methods: {
      getSearch() {
+       this.$store.state.quotesBySearch=[]
        this.$store.dispatch("searchedQuotes", {
         search: this.search
       });

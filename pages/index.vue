@@ -43,7 +43,6 @@ LazyHydrate
  
   computed:{
     quotes(){
-      
       return this.$store.state.quotes
     }
 
@@ -62,7 +61,3 @@ LazyHydrate
 }
 </script>
 
-<style>
-
-
-</style>

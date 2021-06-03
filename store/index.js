@@ -13,7 +13,8 @@ const createStore = () => {
       quotesBySearch: [], //quotes when searched
       animes: [],      //anime list
       animesByChar: [],  //filter anime by char
-      quotesByAnime: []   //particular anime quotes
+      quotesByAnime: [],   //particular anime quotes
+      
     },
 
     mutations: {
@@ -22,8 +23,17 @@ const createStore = () => {
        */
       getQuotes(state) {
          fetch ("https://animechan.vercel.app/api/quotes")
-          .then(data => data.json())
-          .then(res => state.quotes = res)
+           .then(data => {
+             if (!data.ok) {
+               state.quotes = [{quote:"Something Went Wrong ! Try Again later"}]
+             }
+             else return data.json()
+           })
+           .then(res => {
+             if (res) {
+               state.quotes = res;
+             }
+           })
       },
       
    

@@ -6,15 +6,17 @@
    </LazyHydrate>
 
       <!--nav2-->
-  <Header></Header>
+  <LazyHydrate ssr-only><Header></Header></LazyHydrate>
  <!-- Window -->
     <div class="w-4/5 md:w-2/3 bg-gray-100 mx-auto">
 
     <!--Header -->
-        <div class="bg-gray-500 p-4 mb-4">
+      <LazyHydrate ssr-only>
+            <div class="bg-gray-500 p-4 mb-4">
         <span class="text-gray-100">{{$route.query.anime}}</span>
 
         </div>
+      </LazyHydrate>
     <!--endHeader -->
 
         <Quote v-for="(quote,key) in getQuotes" :key="key" :quote="quote"></Quote>
