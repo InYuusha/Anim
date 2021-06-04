@@ -44,7 +44,9 @@ export default {
       short_name: "Quokka",
       lang: "en",
       display: "standalone",
+      start_url: "/",
       background_color: "#949996",
+      theme_color: "#a3acb5",
       description: "Anime Quotes",
       icons: [
         {
@@ -76,7 +78,11 @@ export default {
       ]
     },
     workbox: {
-      globPatterns: ['**/*.{js,css}', '**/img/*'],
+      globPatterns: ["**/*.{js,css}", "**/img/*"],
+      skipWaiting: true,
+      cleanupOutdatedCaches: true,
+      offlineStrategy: "networkFirst",
+      offlinePage: "/offline.html",
       runtimeCaching: [
         {
           urlPattern: "https://animechan.vercel.app/api/.*",
