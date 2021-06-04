@@ -85,7 +85,19 @@ export default {
       offlinePage: "/offline.html",
       runtimeCaching: [
         {
-          urlPattern: "https://animechan.vercel.app/api/.*",
+          urlPattern: "https://animechan.vercel.app/api/available.*",
+          handler: "cacheFirst",
+          method: "GET",
+          strategyOptions: { cacheableResponse: { statuses: [0, 200] } }
+        },
+        {
+          urlPattern: "https://animechan.vercel.app/api/quotes/anime.*",
+          handler: "cacheFirst",
+          method: "GET",
+          strategyOptions: { cacheableResponse: { statuses: [0, 200] } }
+        },
+        {
+          urlPattern: "https://animechan.vercel.app/api/quotes/character.*",
           handler: "cacheFirst",
           method: "GET",
           strategyOptions: { cacheableResponse: { statuses: [0, 200] } }
