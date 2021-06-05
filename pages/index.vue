@@ -49,16 +49,12 @@ LazyHydrate
     }
 
   },
-  methods:{
-
-  },
   // get quotes
   //get anime list
   async mounted(){
     await this.$store.dispatch('shuffledQuotes')
      this.$store.dispatch('animeList')
    
-
   }
 }
 </script>
