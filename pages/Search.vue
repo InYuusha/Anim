@@ -2,11 +2,6 @@
 
 <div>
   
-  <!-- Nav -->
-<LazyHydrate when-visible>
-    <Nav></Nav>
-</LazyHydrate>
-
   <!--nav2-->
   <LazyHydrate when-visible>
     <Header :str="$route.query.s.toUpperCase()"></Header>
@@ -25,14 +20,14 @@
 </template>
 
 <script>
-import Nav from "../components/Nav"
+
 import Header from "../components/Header"
 import Quote from "../components/Quote"
 import LazyHydrate from 'vue-lazy-hydration';
 import Loading from '../components/Loading';
 export default {
   components:{
-    Nav,
+    
     Header,
     Quote,
     LazyHydrate,

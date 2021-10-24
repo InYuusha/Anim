@@ -2,7 +2,7 @@
 
   <!--Navigation Panel -->
   <LazyHydrate>
-      <div class="bg-gray-100 h-10 mb-6 flex pt-1 justify-center ">
+      <div class="bg-gray-100 h-10 mb-6 flex w-full pt-1 justify-center ">
       <span class="text-gray-600 text-sm font-semibold ">{{str}}</span>
     </div>
   </LazyHydrate>

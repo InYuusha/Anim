@@ -1,5 +1,7 @@
 <template>
   <div>
+    <Nav/>
+    <Drawer  />
     <Nuxt />
   </div>
 </template>
@@ -60,3 +62,13 @@ html {
   background-color: #35495e;
 }
 </style>
+<script>
+import  Nav  from '../components/Nav.vue'
+import Drawer from  '../components/Drawer.vue'
+export default{
+  components:{
+    Nav,
+    Drawer
+  }
+}
+</script>

@@ -3,16 +3,23 @@
     <!--First Nav -->
     <div class="bg-gray-700 p-4 md:px-10 px-4  shadow-3xl flex justify-between">
 
-     
-        <!--Home icon -->
-          <router-link to="/" class="pt-1 w-10 h-10 border-4 border-gray-50  text-center text-gray-100 ">
+      <div class="flex justify-between  text-gray-100 md:w-1/6 w-3/6">
+           <!--Home icon -->
+        <router-link to="/" class="pt-1  w-10 h-10 border-4 border-gray-50  text-center  ">
             A
         </router-link>
-   
+
+        <router-link class="align-middle" to="/top">Top</router-link>
+        <router-link class="align-middle" to="/top">Top</router-link>
+        <router-link class="align-middle" to="/top">Top</router-link>
+
+      </div>
+
+        
         
         <div class="flex justify-evenly items-center">  
 
-          <router-link class="text-gray-200 font-semibold uppercase text-xs mx-4 md:mx-8" to="/animes">Anime list</router-link>
+          <router-link to="/allquotes" class="text-gray-200 font-semibold uppercase text-xs mx-4 md:mx-8" >Anime list</router-link>
           <!-- Search -->
             
                 <input

@@ -14,6 +14,9 @@ const createStore = () => {
       animes: [],      //anime list
       animesByChar: [],  //filter anime by char
       quotesByAnime: [],   //particular anime quotes
+
+      topAnime:[],
+      
       
     },
 
@@ -41,8 +44,8 @@ const createStore = () => {
 
       //GET Quotes by Character
       //Page : Search.vue
-       async getQuotesBySearchedChar(state, { search}) {
-         await fetch(`https://animechan.vercel.app/api/quotes/character?name=${search}`)
+       getQuotesBySearchedChar(state, { search}) {
+         fetch(`https://animechan.vercel.app/api/quotes/character?name=${search}`)
            .then(res => {
              //if not found
              if (!res.ok) {
@@ -77,7 +80,12 @@ const createStore = () => {
           .then(res => state.quotesByAnime = res)
       },
       
-    
+    getTopAnime(state,{page}){
+      //let p= typeof page=='undefined'?1:page
+      fetch(`https://api.jikan.moe/v3/top/anime/${page}`)
+      .then(data=>data.json())
+      .then(list=>state.topAnime = list.top)
+    }
     
     },
     actions: {
@@ -118,7 +126,10 @@ const createStore = () => {
       quotesByAnime(context, { anime}) {
         context.commit('getQuotesByAnime', {anime})
       },
-   
+      
+      topAnime(context,{page}){
+        context.commit('getTopAnime',{page})
+      }
 
     },
     gettters: {

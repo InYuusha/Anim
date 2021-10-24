@@ -1,11 +1,7 @@
 <template>
 <div>
 
-  <!-- Nav -->
 
-<LazyHydrate when-visible>
-      <Nav></Nav>
-</LazyHydrate>
 
   <!--nav2-->
     
@@ -48,14 +44,13 @@
 </template>
 
 <script>
-import Nav from "../components/Nav.vue"
 import Header from "../components/Header.vue"
 import Loading from "../components/Loading"
 
 import LazyHydrate from 'vue-lazy-hydration';
 export default{
   components:{
-Nav,
+
 Header,
 Loading,
 LazyHydrate
