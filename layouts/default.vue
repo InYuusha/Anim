@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Nav/>
     <Drawer  />
     <Nuxt />
   </div>
@@ -63,11 +62,11 @@ html {
 }
 </style>
 <script>
-import  Nav  from '../components/NavQuotes.vue'
+
 import Drawer from  '../components/Drawer.vue'
 export default{
   components:{
-    Nav,
+    
     Drawer
   }
 }

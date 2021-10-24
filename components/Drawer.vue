@@ -1,5 +1,5 @@
 <template>
-    <div class="fixed md:w-2/12 w-4/12 ">
+    <div class="fixed md:w-2/12 w-4/12 mt-20">
         <button class="mx-2" @click="switchDrawer()">Click</button>
         <div :class="active?'activeDrawer':null" v-if="active"  class="absolute h-screen bg-gray-700 text-gray-500 p-5">
 

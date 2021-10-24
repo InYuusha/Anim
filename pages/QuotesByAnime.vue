@@ -1,7 +1,7 @@
 <template>
 
 <div>
-
+    <Nav/>
       <!--nav2-->
   <LazyHydrate ssr-only><Header></Header></LazyHydrate>
  <!-- Window -->
@@ -45,11 +45,11 @@
 import Header from "../components/Header"
 import Quote from "../components/Quote"
 import Loading from "../components/Loading"
-
+import Nav from "../components/NavQuotes.vue"
 import LazyHydrate from 'vue-lazy-hydration';
 export default{
     components:{
-
+        Nav,
         Header,
         Quote,
         Loading,

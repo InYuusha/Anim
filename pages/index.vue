@@ -1,5 +1,6 @@
 <template>
     <div class="">
+        <Nav></Nav>
         <Header str="Top Anime"/>
 
         <div class=" w-full flex justify-center mb-4 font-bold">
@@ -8,11 +9,7 @@
             <button  @click="nextPage()" class="mx-2">next</button>
         </div>
 
-    <!--No content -->
-        <div class=" flex flex-col my-9" v-if="typeof animes=='undefined'||animes.length==0">
-            <h3 class="text-7xl font-extrabold mx-auto">404</h3>
-            <h3 class="text-gray-600 align-bottom mx-auto">No Content on this page</h3>
-        </div>
+    <Loading :list="animes" />
 
     <!-- Content -->
         <div class="grid grid-cols-4 mx-auto px-4 md:w-4/6 ">
@@ -31,11 +28,15 @@
     </div>
 </template>
 <script>
-
+import Nav from '../components/NavAnime.vue'
+import Loading from '../components/Loading.vue'
 import Header from '../components/Header.vue'
+
 export default {
     components:{
         Header,
+        Loading,
+        Nav
         
     },
     data:()=>({

@@ -4,6 +4,7 @@
 
 
   <!--nav2-->
+  <Nav/>
     
   <LazyHydrate ssr-only>
     <Header></Header>
@@ -46,11 +47,11 @@
 <script>
 import Header from "../components/Header.vue"
 import Loading from "../components/Loading"
-
+import Nav from "../components/NavQuotes.vue"
 import LazyHydrate from 'vue-lazy-hydration';
 export default{
   components:{
-
+Nav,
 Header,
 Loading,
 LazyHydrate
