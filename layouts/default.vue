@@ -63,7 +63,7 @@ html {
 }
 </style>
 <script>
-import  Nav  from '../components/Nav.vue'
+import  Nav  from '../components/NavQuotes.vue'
 import Drawer from  '../components/Drawer.vue'
 export default{
   components:{
