@@ -22,7 +22,7 @@
                src=""
                v-on:keyup.enter="getSearch()"
                v-model="search"
-               class="md:h-11 h-8 shadow-sm rounded md:w-36 w-14 px-2 text-grey-700"
+               class="md:h-11 h-8 shadow-sm rounded md:w-36 w-14 px-2 text-gray-700"
                 />
              <button
                 v-on:click="getSearch()"

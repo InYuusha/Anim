@@ -17,7 +17,10 @@ const createStore = () => {
 
       topAnime:[],
       
-      animesByGenre:{}
+      animesByGenre:{},
+      animeInfo:{},
+      
+      animesBySearch:[]
       
       
     },
@@ -84,6 +87,8 @@ const createStore = () => {
       
     getTopAnime(state,{page}){
       //let p= typeof page=='undefined'?1:page
+      state.topAnime=[]
+
       fetch(`https://api.jikan.moe/v3/top/anime/${page}`)
       .then(data=>data.json())
       .then(list=>state.topAnime = list.top)
@@ -94,6 +99,21 @@ const createStore = () => {
       
         .then(data=>data.json())
         .then(list=>state.animesByGenre=list)
+    },
+    getAnimeById(state,{id}){
+      state.animeInfo={}
+      
+      fetch(`https://api.jikan.moe/v3/anime/${id}`)
+        .then(data=>data.json())
+        .then(info=>state.animeInfo=info)
+    },
+
+    getAnimeBySearch(state,{q}){
+
+      state.animesBySearch =[]
+      fetch(`https://api.jikan.moe/v3/search/anime?q=${q}`)
+      .then(data=>data.json())
+      .then(list=>state.animesBySearch=list.results)
     }
     
     },
@@ -139,11 +159,15 @@ const createStore = () => {
       topAnime(context,{page}){
         context.commit('getTopAnime',{page})
       },
-      async animesByGenre(context,{id,page}){
+      animesByGenre(context,{id,page}){
         
-        let data=await context.commit('getAnimesByGenre',{id,page})
-        return data;
-        
+        context.commit('getAnimesByGenre',{id,page})   
+      },
+      getAnime(context,{id}){
+        context.commit('getAnimeById',{id})
+      },
+      async animesBySearch(context,{q}){
+        await context.commit('getAnimeBySearch',{q})
       }
 
     },

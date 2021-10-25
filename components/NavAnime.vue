@@ -14,7 +14,7 @@
                src=""
                v-on:keyup.enter="getSearch()"
                v-model="search"
-               class="md:h-11 h-8 shadow-sm rounded md:w-36 w-14 px-2 text-grey-700"
+               class="md:h-11 h-8 shadow-sm rounded md:w-36 w-14 px-2 text-gray-700"
                 />
             <button
                 v-on:click="getSearch()"
@@ -44,13 +44,13 @@ export default {
     search: ""
   }),
   methods: {
-     getSearch() {
-       this.$store.state.quotesBySearch=[]
-       this.$store.dispatch("searchedQuotes", {
-        search: this.search
+     async getSearch() {
+       
+       await this.$store.dispatch("animesBySearch", {
+        q: this.search
       });
       this.$router.push({
-        path: `/quotes/search?s=${this.search}`
+        path: `/anime/search?q=${this.search}`
       });
     },
     
