@@ -42,10 +42,10 @@
 
 <script>
 
-import Header from "../components/Header"
-import Quote from "../components/Quote"
-import Loading from "../components/Loading"
-import Nav from "../components/NavQuotes.vue"
+import Header from "../../components/Header"
+import Quote from "../../components/Quote"
+import Loading from "../../components/Loading"
+import Nav from "../../components/NavQuotes.vue"
 import LazyHydrate from 'vue-lazy-hydration';
 export default{
     components:{

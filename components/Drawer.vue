@@ -22,7 +22,7 @@ export default {
             },
             {
                 title:'Quotes',
-                route:'/randomquotes'
+                route:'/quotes/randomquotes'
             }
         ]
     }),

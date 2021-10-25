@@ -45,9 +45,9 @@
 </template>
 
 <script>
-import Header from "../components/Header.vue"
-import Loading from "../components/Loading"
-import Nav from "../components/NavQuotes.vue"
+import Header from "../../components/Header.vue"
+import Loading from "../../components/Loading"
+import Nav from "../../components/NavQuotes.vue"
 import LazyHydrate from 'vue-lazy-hydration';
 export default{
   components:{
@@ -80,7 +80,7 @@ LazyHydrate
      async getQuotesByAnime(anime){
         this.$store.state.quotesByAnime=[]
         this.$store.dispatch('quotesByAnime',{anime:anime})
-        this.$router.push(`/quotesbyanime?anime=${anime}`)
+        this.$router.push(`/quotes/quotesbyanime?anime=${anime}`)
 
       },
       //filter Anime list by char

@@ -15,7 +15,7 @@
         
         <div class="flex justify-evenly items-center">  
 
-          <router-link to="/allquotes" class="text-gray-200 font-semibold uppercase text-xs mx-4 md:mx-8" >Anime list</router-link>
+          <router-link to="/quotes/allquotes" class="text-gray-200 font-semibold uppercase text-xs mx-4 md:mx-8" >Anime list</router-link>
           <!-- Search -->
             
                 <input
@@ -58,7 +58,7 @@ export default {
         search: this.search
       });
       this.$router.push({
-        path: `/search?s=${this.search}`
+        path: `/quotes/search?s=${this.search}`
       });
     },
     

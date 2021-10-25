@@ -16,6 +16,7 @@ const createStore = () => {
       quotesByAnime: [],   //particular anime quotes
 
       topAnime:[],
+      animesByGenre:{}
       
       
     },
@@ -85,6 +86,13 @@ const createStore = () => {
       fetch(`https://api.jikan.moe/v3/top/anime/${page}`)
       .then(data=>data.json())
       .then(list=>state.topAnime = list.top)
+    },
+    getAnimesByGenre(state,{id,page}){
+
+      fetch(`https://api.jikan.moe/v3/genre/anime/${id}/${page}`)
+      
+        .then(data=>data.json())
+        .then(list=>state.animesByGenre=list)
     }
     
     },
@@ -129,6 +137,9 @@ const createStore = () => {
       
       topAnime(context,{page}){
         context.commit('getTopAnime',{page})
+      },
+      async animesByGenre(context,{id,page}){
+        context.commit('getAnimesByGenre',{id,page})
       }
 
     },

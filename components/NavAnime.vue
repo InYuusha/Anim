@@ -5,7 +5,7 @@
 
         <div class="flex space-x-4">
             <router-link class="my-auto" to="/">Top</router-link>
-            <router-link class="my-auto" to="/genre">Genre</router-link>
+            <router-link class="my-auto" to="/anime/genre">Genre</router-link>
         </div>
        
         <div class="flex justify-evenly items-center">  
@@ -50,7 +50,7 @@ export default {
         search: this.search
       });
       this.$router.push({
-        path: `/search?s=${this.search}`
+        path: `/quotes/search?s=${this.search}`
       });
     },
     
