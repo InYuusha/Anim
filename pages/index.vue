@@ -3,10 +3,10 @@
         <Nav></Nav>
         <Header str="Top Anime"/>
 
-        <div class=" w-full flex justify-center mb-4 font-bold">
-            <button @click="prevPage()" class="mx-2">prev</button>
+        <div class=" w-full flex justify-center my-4 font-bold space-x-4 text-gray-700">
+            <button  @click="prevPage()"><UilBackward size="30" /></button>
             <p>{{page}}</p>
-            <button  @click="nextPage()" class="mx-2">next</button>
+            <button id="next"  @click="nextPage()"><UilForward size="30" /></button>
         </div>
 
     <Loading :list="animes" />
@@ -22,12 +22,16 @@ import Nav from '../components/NavAnime.vue'
 import Loading from '../components/Loading.vue'
 import Header from '../components/Header.vue'
 
+import { UilForward } from '@iconscout/vue-unicons'
+import { UilBackward } from '@iconscout/vue-unicons'
 export default {
     components:{
         Animes,
         Header,
         Loading,
-        Nav
+        Nav,
+        UilForward,
+        UilBackward,
         
     },
     data:()=>({

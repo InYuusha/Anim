@@ -3,10 +3,10 @@
         <Nav></Nav>
         
 
-        <div class=" w-full flex justify-center mb-4 font-bold">
-            <button @click="prevPage()" class="mx-2">prev</button>
+        <div class=" w-full flex justify-center my-4 font-bold space-x-4 text-gray-700">
+            <button  @click="prevPage()"><UilBackward size="30" /></button>
             <p>{{page}}</p>
-            <button  @click="nextPage()" class="mx-2">next</button>
+            <button id="next"  @click="nextPage()"><UilForward size="30" /></button>
         </div>
 
         
@@ -21,11 +21,13 @@
 
 import Nav from '../../../components/NavAnime.vue'
 import Animes from '../../../components/Animes.vue'
-
+import { UilForward } from '@iconscout/vue-unicons'
+import { UilBackward } from '@iconscout/vue-unicons'
 export default {
     components:{
         Nav,
-    
+        UilForward,
+        UilBackward,
         Animes
     },
     data:()=>({
