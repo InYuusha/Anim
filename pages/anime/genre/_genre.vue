@@ -9,8 +9,11 @@
             <button id="next"  @click="nextPage()"><UilForward size="30" /></button>
         </div>
 
-        
+              
+
         <h3 class="text-center text-3xl text-gray-600 my-8">Genre <b>{{$route.params.genre}}</b>, Found {{animesCount}}</h3> 
+        
+        <Loading :list="animes" />  
         
         <div class="grid grid-cols-4 mx-auto px-4 md:w-4/6 ">
             <router-link :to="'/anime/'+anime.title+'?id='+anime.mal_id" v-for="(anime,key) in animes" :key="key" class="justify-items-center m-2 align-center flex flex-col">
@@ -30,12 +33,14 @@
 <script>
 
 import Nav from '../../../components/NavAnime.vue'
+import Loading from '../../../components/Loading.vue'
 import Animes from '../../../components/Animes.vue'
 import { UilForward } from '@iconscout/vue-unicons'
 import { UilBackward } from '@iconscout/vue-unicons'
 export default {
     components:{
         Nav,
+        Loading,
         UilForward,
         UilBackward,
         Animes

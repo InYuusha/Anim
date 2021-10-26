@@ -19,7 +19,7 @@ export default {
         UilBars
     },
     data:()=>({
-        active:true,
+        active:false,
         items:[
             {
                 title:'Anime',
@@ -28,6 +28,10 @@ export default {
             {
                 title:'Quotes',
                 route:'/quotes/randomquotes'
+            },
+            {
+                title:'Studio Ghibli',
+                route:'/ghibli/films'
             }
         ]
     }),
