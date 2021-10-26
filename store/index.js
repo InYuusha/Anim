@@ -22,7 +22,9 @@ const createStore = () => {
       
       animesBySearch:[],
 
-      ghibliFilms:[]
+      ghibliFilms:[],
+
+      film:{}
       
       
     },
@@ -120,7 +122,14 @@ const createStore = () => {
     getGhibliFilms(state){
       state.ghibliFilms=[]
       fetch(`https://ghibliapi.herokuapp.com/films`)
-        .then()
+        .then(data=>data.json())
+        .then(list=>state.ghibliFilms=list)
+    },
+    getFilm(state,{id}){
+     state.film = state.ghibliFilms.find((film)=>{
+        return film.id == id;
+      })
+      
     }
     
     },
@@ -178,6 +187,9 @@ const createStore = () => {
       },
       ghibliFilms(context){
         context.commit('getGhibliFilms')
+      },
+      ghibliFilm(context,{id}){
+        context.commit('getFilm',{id})
       }
 
     },
