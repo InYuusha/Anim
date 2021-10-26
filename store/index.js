@@ -20,7 +20,9 @@ const createStore = () => {
       animesByGenre:{},
       animeInfo:{},
       
-      animesBySearch:[]
+      animesBySearch:[],
+
+      ghibliFilms:[]
       
       
     },
@@ -114,6 +116,11 @@ const createStore = () => {
       fetch(`https://api.jikan.moe/v3/search/anime?q=${q}`)
       .then(data=>data.json())
       .then(list=>state.animesBySearch=list.results)
+    },
+    getGhibliFilms(state){
+      state.ghibliFilms=[]
+      fetch(`https://ghibliapi.herokuapp.com/films`)
+        .then()
     }
     
     },
@@ -168,6 +175,9 @@ const createStore = () => {
       },
       async animesBySearch(context,{q}){
         await context.commit('getAnimeBySearch',{q})
+      },
+      ghibliFilms(context){
+        context.commit('getGhibliFilms')
       }
 
     },
