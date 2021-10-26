@@ -3,8 +3,8 @@
         <Nav></Nav>
         <Header str="Genre"></Header>
 
-       <div class="md:w-8/12 w-10/12 mx-auto grid md:grid-cols-6 grid-cols-3 gap-4">
-          <router-link :to="'/anime/genre/'+genre.genre+'?id='+genre.id" class="mx-4 my-3 w-full p-4 bg-gray-300 rounded-lg hover:bg-gray-500 hover:text-gray-200 " v-for="(genre,key) in genres" :key="key">
+       <div class="md:w-8/12 w-10/12 text-xs mx-auto grid md:grid-cols-6 grid-cols-3 gap-4">
+          <router-link :to="'/anime/genre/'+genre.genre+'?id='+genre.id" class="mx-4 my-3 w-full p-4 text-gray-100 bg-gray-500 rounded-lg hover:bg-gray-800 hover:text-gray-200 " v-for="(genre,key) in genres" :key="key">
              <p class="text-center">{{genre.genre}}</p>
           </router-link>
        </div>
