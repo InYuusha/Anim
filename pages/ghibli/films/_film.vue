@@ -1,10 +1,13 @@
 <template>
     <div>
+        <!--Nav-->
         <div class="p-6  bg-gray-700 text-gray-300"><h3 class="mx-14 font-extrabold text-lg ">Studio Ghibli</h3></div>
-
+          <img class="w-screen fixed opacity-20 md:my-0 my-10" :src="film.movie_banner" />
           <div v-if="Object.keys(film).length!=0" class="md:w-3/6 border-2 overflow-auto border-gray-500 text-sm md:mx-auto mx-4 place-items-start my-10 ">
             
+            
             <img :src="film.image" alt="film poster" class="w-1/3 m-4 float-left">
+            
             <div class="flex flex-col space-y-4 md:text-sm text-xs">
                 <h3 class="font-extrabold md:text-lg text-sm text-gray-700 my-2">{{film.title}}</h3>
                 <h3 class="font-extrabold md:text-lg text-sm text-gray-700 mb-2">{{film.original_title}}</h3>

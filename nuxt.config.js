@@ -40,8 +40,8 @@ export default {
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
-      name: "Quokka",
-      short_name: "Quokka",
+      name: "AnimeTree",
+      short_name: "Anim",
       lang: "en",
       display: "standalone",
       start_url: "/",
@@ -101,7 +101,19 @@ export default {
           handler: "cacheFirst",
           method: "GET",
           strategyOptions: { cacheableResponse: { statuses: [0, 200] } }
-        }
+        },
+        {
+          urlPattern: "https://api.jikan.moe/v3.*",
+          handler: "cacheFirst",
+          method: "GET",
+          strategyOptions: { cacheableResponse: { statuses: [0, 200] } }
+        },
+        {
+          urlPattern: "https://ghibliapi.herokuapp.com.*",
+          handler: "cacheFirst",
+          method: "GET",
+          strategyOptions: { cacheableResponse: { statuses: [0, 200] } }
+        },
       ]
     }
   },
