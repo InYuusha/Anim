@@ -23,8 +23,6 @@ const createStore = () => {
       animesBySearch:[],
 
       ghibliFilms:[],
-
-      film:{}
       
       
     },
@@ -125,12 +123,7 @@ const createStore = () => {
         .then(data=>data.json())
         .then(list=>state.ghibliFilms=list)
     },
-    getFilm(state,{id}){
-     state.film = state.ghibliFilms.find((film)=>{
-        return film.id == id;
-      })
-      
-    }
+  
     
     },
     actions: {
@@ -188,9 +181,7 @@ const createStore = () => {
       ghibliFilms(context){
         context.commit('getGhibliFilms')
       },
-      ghibliFilm(context,{id}){
-        context.commit('getFilm',{id})
-      }
+    
 
     },
     gettters: {
